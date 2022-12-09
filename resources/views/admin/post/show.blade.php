@@ -7,9 +7,9 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="mr-2 m-0">{{$category->title}}</h1>
-                        <td><a href="{{route('admin.category.edit',$category)}}" class="text-success"><i class="fa fa-pen"></i></a></td>
-                        <form action="{{route('admin.category.delete', $category->id)}}" method="post">
+                        <h1 class="mr-2 m-0">{{$post->title}}</h1>
+                        <td><a href="{{route('admin.post.edit',$post)}}" class="text-success"><i class="fa fa-pen"></i></a></td>
+                        <form action="{{route('admin.post.delete', $post->id)}}" method="post">
                             @csrf
                             @method('delete')
                             <button type="submit" class="border-0 bg-transparent">
@@ -20,7 +20,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">{{$category->title}}</li>
+                            <li class="breadcrumb-item active">{{$post->title}}</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -42,11 +42,11 @@
                                 <tbody>
                                 <tr>
                                     <td>ID</td>
-                                    <td>{{$category->id}}</td>
+                                    <td>{{$post->id}}</td>
                                 </tr>
                                 <tr>
                                     <td>Название</td>
-                                    <td>{{$category->title}}</td>
+                                    <td>{{$post->title}}</td>
                                 </tr>
                                 </tbody>
                             </table>
