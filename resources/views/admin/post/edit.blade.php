@@ -34,7 +34,7 @@
                                        value="{{$post->title}}">
                                 @error('title')
                                 <div class="text-danger">
-                                    Заполните поле!
+                                    {{$message}}
                                 </div>
                                 @enderror
                             </div>
@@ -44,7 +44,7 @@
                                 </textarea>
                                 @error('title')
                                 <div class="text-danger">
-                                    Заполните поле!
+                                    {{$message}}
                                 </div>
                                 @enderror
                             </div>
@@ -65,7 +65,7 @@
 
                                 @error('preview_image')
                                 <div class="text-danger">
-                                    Заполните поле!
+                                    {{$message}}
                                 </div>
                                 @enderror
 
@@ -89,7 +89,7 @@
                                 </div>
                                 @error('main_image')
                                 <div class="text-danger">
-                                    Заполните поле!
+                                    {{$message}}
                                 </div>
                                 @enderror
                             </div>
