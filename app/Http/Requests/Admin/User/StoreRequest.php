@@ -24,7 +24,21 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required|string'
+            'name'=>'required|string',
+            'email'=>'required|string|email|unique:users',
+            'role'=> 'required|integer'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Это поле необходимо для заполнения',
+            'name.string' => 'Данные должны быть строкой',
+            'email.required' => 'Это поле необходимо для заполнения',
+            'email.string' => 'Почта должна быть строкой',
+            'email.email' => 'Почта должна соответветстовать формату sezam@mail.ru',
+            'email.unique' => 'Данная почта уже существует',
         ];
     }
 }

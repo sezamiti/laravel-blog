@@ -29,13 +29,46 @@
                         <form action="{{route('admin.user.store')}}" method="POST" class="w-25">
                             @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" name="user" placeholder="user name">
+                                <input type="text" class="form-control" name="name" placeholder="user name">
                                 @error('name')
-                                    <div class="text-danger">
-                                        Заполнить поле!
-                                    </div>
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
                                 @enderror
                             </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="email" placeholder="Email">
+                                @error('email')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                            </div>
+
+{{--                            <div class="form-group">--}}
+{{--                                <input type="text" class="form-control" name="password" placeholder="password">--}}
+{{--                                @error('password')--}}
+{{--                                <div class="text-danger">--}}
+{{--                                    {{$message}}--}}
+{{--                                </div>--}}
+{{--                                @enderror--}}
+{{--                            </div>--}}
+
+                            <div class="form-group">
+                                <label>Выберите Роль</label>
+                                <select name="role" class="form-control">
+                                    @foreach($roles as $id => $role)
+                                        <option value="{{$id}}"
+                                            {{$id == old('role_id') ? ' selected': ''}}
+                                        >{{$role}}</option>
+                                    @endforeach
+                                </select>
+                                @error('role')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+
                             <input type="submit" class="btn btn-primary" value="Add">
                         </form>
                     </div>

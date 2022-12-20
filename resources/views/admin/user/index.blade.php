@@ -7,11 +7,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">User</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Home</a></li>
                             <li class="breadcrumb-item active">user</li>
                         </ol>
                     </div><!-- /.col -->
@@ -48,7 +48,7 @@
                                 @foreach($users as $user)
                                     <tr>
                                         <td>{{$user->id}}</td>
-                                        <td>{{$user->title}}</td>
+                                        <td>{{$user->name}}</td>
                                         <td><a href="{{route('admin.user.show',$user->id)}}"><i
                                                     class="fa fa-eye"></i></a></td>
                                         <td><a href="{{route('admin.user.edit',$user->id)}}"

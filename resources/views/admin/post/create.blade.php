@@ -64,7 +64,6 @@
                                     {{$message}}
                                 </div>
                                 @enderror
-
                             </div>
 
                             <div class="form-group w-50">

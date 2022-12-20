@@ -17,9 +17,24 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', 'indexController');
 });
 
-Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function() {
+Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'admin', 'verified']], function () {
+    Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
+        Route::get('/', IndexController::class)->name('personal.main.index');
+    });
+
+    Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {
+        Route::get('/', IndexController::class)->name('personal.liked.index');
+    });
+
+    Route::group(['namespace' => 'Comment','prefix' => 'comment'], function () {
+        Route::get('/', IndexController::class)->name('personal.comment.index');
+    });
+});
+
+
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware'=>['auth','admin', 'verified']], function() {
     Route::group(['namespace' => 'Main'], function () {
-        Route::get('/', IndexController::class);
+        Route::get('/', IndexController::class)->name('admin.main.index');
     });
 
     Route::group(['namespace' => 'Post', 'prefix'=>'post'], function () {
@@ -69,5 +84,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
 
 
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
+
 

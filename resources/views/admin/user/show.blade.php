@@ -20,7 +20,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">{{$user->title}}</li>
+                            <li class="breadcrumb-item active">{{$user->name}}</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -48,16 +48,16 @@
                                     <td>Name</td>
                                     <td>{{$user->name}}</td>
                                 </tr>
+                                <tr>
+                                    <td>email</td>
+                                    <td>{{$user->email}}</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->
                     </div>
                 </div>
-            </div>
-            <!-- /.row -->
-
-    </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
     </div>
