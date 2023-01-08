@@ -41,12 +41,12 @@
                                 <tr>
                                     <td>{{$comment->id}}</td>
                                     <td>{{$comment->message}}</td>
-                                    <td><a href="{{route('admin.post.edit',$comment->id)}}"
+                                    <td><a href="{{route('personal.comment.edit',$comment->id)}}"
                                            class="text-success"><i class="fa fa-pen"></i></a></td>
                                     <td>
-                                        <form action="{{route('admin.post.delete', $comment->id)}}" method="comment">
+                                        <form action="{{route('personal.comment.delete', $comment->id)}}" method="POST">
                                             @csrf
-                                            @method('delete')
+                                            @method('DELETE')
                                             <button type="submit" class="border-0 bg-transparent">
                                                 <i class="fa fa-trash text-danger" role="button"></i>
                                             </button>
